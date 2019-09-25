@@ -10,7 +10,7 @@ Player::~Player()
 {
 }
 
-//¿can move? then move
+//¿can move? then move, ¿can´t move? stay
 void Player::moveUp()
 {
 	if (movePlayer(getX(), getY(), getX(), getY()-1))
