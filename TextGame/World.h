@@ -25,4 +25,6 @@ public:
 	~World();
 
 	void draw();
+
+	bool canMove(int x, int y);
 };

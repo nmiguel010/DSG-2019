@@ -72,3 +72,25 @@ void World::drawMaze()
 	//we sleep for a while
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 }
+
+bool World::canMove(int x, int y)
+{
+	//width 100
+	int cell = y * width + x;
+
+	//count coin = '?' and move
+	if ('?' == m_cells[cell])
+	{
+		return true;
+	}
+	//no move wall = '#'
+	else if ('#' == m_cells[cell])
+	{
+		return false;
+	}
+	//move 
+	else
+	{
+		return true;
+	}
+}
