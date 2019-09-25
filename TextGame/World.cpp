@@ -10,6 +10,9 @@
 #include "stdafx.h"
 #include <stdio.h>
 #include <istream>
+#include <vector>
+using namespace std;
+
 
 
 World::World(std::string nameFile)
@@ -21,6 +24,8 @@ World::World(std::string nameFile)
 
 	//TODO: initalize everything else
 	//...
+
+	World::CELLS = width * height;
 }
 
 
@@ -39,6 +44,8 @@ void World::draw()
 	//TODO: -write the time elapsed since the beginning
 	//		-set the proper position/color
 	std::cout << m_timer.getElapsedTime() << "   ";
+
+
 }
 
 
@@ -46,7 +53,20 @@ void World::drawMaze()
 {
 	System::clear();
 
+
 	//TODO: -draw the maze: walls and each of the cells
+	//M: cout--
+	//M: for sobre for
+	for (int i = 0; i < CELLS; i++)
+	{
+		for (int j = 0; j <= width; j++)
+		{
+			cout << &m_cells[i];
+			i++;
+		}
+		cout << '\n';
+	}
+
 
 
 	//we sleep for a while
