@@ -26,6 +26,7 @@ public:
 	//IN WORLD
 	//bool canMove(int x, int y);
 
-	bool Player::movePlayer(int myCellX, int myCellY, int wantedCellX, int wantedCellY);
+	/*bool Player::movePlayer(int myCellX, int myCellY, int wantedCellX, int wantedCellY);*/
+	bool Player::movePlayer(int wantedCellX, int wantedCellY);
 };
 

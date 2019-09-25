@@ -13,7 +13,8 @@ Player::~Player()
 //¿can move? then move, ¿can´t move? stay
 void Player::moveUp()
 {
-	if (movePlayer(getX(), getY(), getX(), getY()-1))
+	//if (movePlayer(getX(), getY(), getX(), getY()-1))
+	if (movePlayer(getX(), getY() - 1))
 	{
 		c_y -= 1;
 	}
@@ -21,7 +22,8 @@ void Player::moveUp()
 
 void Player::moveDown()
 { 
-	if (movePlayer(getX(), getY(), getX(), getY()+1))
+	/*if (movePlayer(getX(), getY(), getX(), getY()+1))*/
+	if (movePlayer(getX(), getY() + 1))
 	{
 		c_y += 1;
 	}
@@ -29,7 +31,8 @@ void Player::moveDown()
 
 void Player::moveRight()
 {
-	if (movePlayer(getX(), getY(), getX()+1, getY()))
+	//if (movePlayer(getX(), getY(), getX()+1, getY()))
+	if (movePlayer(getX() + 1, getY()))
 	{
 		c_x += 1;
 	}
@@ -37,7 +40,8 @@ void Player::moveRight()
 
 void Player::moveLeft()
 {
-	if (movePlayer(getX(), getY(), getX()-1, getY()))
+	//if (movePlayer(getX(), getY(), getX()-1, getY()))
+	if (movePlayer(getX() - 1, getY()))
 	{
 		c_x -= 1;
 	}
@@ -63,9 +67,10 @@ void Player::addcoin()
 	coins += 1;
 }
 
-bool Player::movePlayer(int myCellX, int myCellY, int wantedCellX, int wantedCellY)
+//bool Player::movePlayer(int myCellX, int myCellY, int wantedCellX, int wantedCellY)
+bool Player::movePlayer(int wantedCellX, int wantedCellY)
 {
-	return m_world.canMove();
+	return m_world.canMove(wantedCellX, wantedCellY);
 }
 
 //IN WORLD
