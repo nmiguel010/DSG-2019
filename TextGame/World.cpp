@@ -24,6 +24,7 @@ World::World(std::string nameFile)
 
 	//TODO: initalize everything else
 	//...
+	
 
 	World::CELLS = width * height;
 }
@@ -33,7 +34,10 @@ World::~World()
 {
 }
 
+World::World(int width, int height)
+{
 
+}
 void World::draw()
 {
 	drawMaze();
@@ -45,7 +49,6 @@ void World::draw()
 	//		-set the proper position/color
 	std::cout << m_timer.getElapsedTime() << "   ";
 
-
 }
 
 
@@ -53,16 +56,16 @@ void World::drawMaze()
 {
 	System::clear();
 
-
 	//TODO: -draw the maze: walls and each of the cells
-	//M: cout--
-	//M: for sobre for
-	for (int i = 0; i < CELLS; i++)
+
+	int n;
+
+	for (int i = 0; i < height; i++)
 	{
 		for (int j = 0; j <= width; j++)
 		{
-			cout << &m_cells[i];
-			i++;
+			n = World::calcPosition(i, j);
+			cout << m_cells[n];
 		}
 		cout << '\n';
 	}
@@ -79,12 +82,12 @@ bool World::canMove(int x, int y)
 	int cell = y * width + x;
 
 	//count coin = '?' and move
-	if ('?' == m_cells[cell])
+	if (m_coin == m_cells[cell])
 	{
 		return true;
 	}
 	//no move wall = '#'
-	else if ('#' == m_cells[cell])
+	else if (m_wall == m_cells[cell])
 	{
 		return false;
 	}
@@ -93,4 +96,9 @@ bool World::canMove(int x, int y)
 	{
 		return true;
 	}
+}
+
+int World::calcPosition(int x, int y)
+{
+	int cellP = y * width + x;
 }
