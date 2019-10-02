@@ -20,6 +20,8 @@ int main()
 		//draw the coins
 		world.drawCoins();
 		gameLogic.processInput();
+		//game stadistics
+		gameLogic.gamePoints();
 
 		//no infinite maze
 		System::clear();
