@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Player.h"
 #include "World.h"
+using namespace std;
 
 Player::Player(World& world) : m_world(world)
 {
@@ -76,8 +77,8 @@ bool Player::movePlayer(int wantedCellX, int wantedCellY)
 //return if in the position is money
 bool Player::isCoin(int x, int y)
 {
-	int cell = World::calcPosition(x, y);
-	if (World::m_coin == World::m_cells[cell])
+	int cell = m_world.calcPosition(x, y);
+	if (m_world.m_coin == m_world.m_cells[cell])
 	{
 		addcoin();
 		return true;
