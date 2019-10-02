@@ -73,6 +73,21 @@ bool Player::movePlayer(int wantedCellX, int wantedCellY)
 	return m_world.canMove(wantedCellX, wantedCellY);
 }
 
+//return if in the position is money
+bool Player::isCoin(int x, int y)
+{
+	int cell = World::calcPosition(x, y);
+	if (World::m_coin == World::m_cells[cell])
+	{
+		addcoin();
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 //IN WORLD
 //bool Player::canMove(int x, int y)
 //{

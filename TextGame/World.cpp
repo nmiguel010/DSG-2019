@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "World.h"
+#include "Player.h"
+#include "GameLogic.h"
 #include <iostream>
 #include <stdlib.h>
 #include <algorithm>
@@ -43,14 +45,13 @@ void World::draw()
 	drawMaze();
 
 	//TODO: -write the points each player has
-	
+	coins1 = GameLogic::m_player1.getcoin();
+	coins2 = GameLogic::m_player2.getcoin();
 
 	//TODO: -write the time elapsed since the beginning
 	//		-set the proper position/color
 	std::cout << m_timer.getElapsedTime() << "   ";
-
 }
-
 
 void World::drawMaze()
 {
@@ -65,25 +66,40 @@ void World::drawMaze()
 		for (int j = 0; j <= width; j++)
 		{
 			n = World::calcPosition(i, j);
-			cout << m_cells[n];
+			//if not coin draw
+			if (!m_cells[n] == m_coin) {
+				cout << m_cells[n];
+			}
 		}
 		cout << '\n';
 	}
-
-
 
 	//we sleep for a while
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 }
 
+void World::drawCoins()
+{
+	//travel the world and when coin draw coin in the world
+	for (int i = 0; i < height; i++)
+	{
+		if (m_coin == m_cells[i])
+		{
+			cout << m_cells[i];
+		}
+	}
+}
+
 bool World::canMove(int x, int y)
 {
 	//width 100
-	int cell = y * width + x;
+	//int cell = y * width + x;
+	int cell = calcPosition(x, y);
 
 	//count coin = '?' and move
 	if (m_coin == m_cells[cell])
 	{
+		
 		return true;
 	}
 	//no move wall = '#'
@@ -101,4 +117,5 @@ bool World::canMove(int x, int y)
 int World::calcPosition(int x, int y)
 {
 	int cellP = y * width + x;
+	return cellP;
 }

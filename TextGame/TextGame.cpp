@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "World.h"
 #include "GameLogic.h"
+#include "System.h"
 
 
 int main()
@@ -14,9 +15,14 @@ int main()
 
 	while (!gameLogic.gameHasEnded())
 	{
+		//draw only the world
 		world.draw();
-
+		//draw the coins
+		world.drawCoins();
 		gameLogic.processInput();
+
+		//no infinite maze
+		System::clear();
 	}
 
     return 0;

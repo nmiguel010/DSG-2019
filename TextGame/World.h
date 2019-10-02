@@ -10,6 +10,9 @@ class World
 	int width;
 	int height;
 
+	int coins1;
+	int coins2;
+
 	int CELLS;
 
 	vector<char> m_cells;
@@ -35,6 +38,8 @@ public:
 	void draw();
 
 	int calcPosition(int x, int y);
+
+	void drawCoins();
 
 	bool canMove(int x, int y);
 };

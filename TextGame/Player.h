@@ -28,5 +28,7 @@ public:
 
 	/*bool Player::movePlayer(int myCellX, int myCellY, int wantedCellX, int wantedCellY);*/
 	bool Player::movePlayer(int wantedCellX, int wantedCellY);
+
+	bool Player::isCoin(int x, int y);
 };
 
