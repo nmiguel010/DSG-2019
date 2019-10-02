@@ -15,12 +15,13 @@ class World
 
 	int CELLS;
 
-	public vector<char> m_cells;
+public :
+	vector<char> m_cells;
 
 	bool m_esc; 
 
 	//Caracteres
-	public const char m_coin = '?';
+	const char m_coin = '?';
 	const char m_player1 = '1';
 	const char m_player2 = '2';
 	const char m_nothing = ' ';
@@ -28,7 +29,7 @@ class World
 
 	void drawMaze();
 
-public:
+
 	World(string nameFile);
 	~World();
 
