@@ -10,8 +10,8 @@ class World
 	int width;
 	int height;
 
-	int coins1;
-	int coins2;
+	//int coins1;
+	//int coins2;
 
 	int CELLS;
 

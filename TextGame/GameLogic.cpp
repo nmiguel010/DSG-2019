@@ -58,3 +58,11 @@ bool GameLogic::gameHasEnded()
 	else
 		return false;
 }
+
+void GameLogic::gamePoints()
+{
+	coins1 = GameLogic::m_player1.getcoin();
+	coins2 = GameLogic::m_player2.getcoin();
+	cout << "Player1 coins: " + coins1 + '\n';
+	cout << "Player2 coins: " + coins2;
+}

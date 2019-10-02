@@ -45,8 +45,9 @@ void World::draw()
 	drawMaze();
 
 	//TODO: -write the points each player has
-	coins1 = GameLogic::m_player1.getcoin();
-	coins2 = GameLogic::m_player2.getcoin();
+	//coins1 = GameLogic::m_player1.getcoin();
+	//coins2 = GameLogic::m_player2.getcoin();
+	//AQUI NO
 
 	//TODO: -write the time elapsed since the beginning
 	//		-set the proper position/color
