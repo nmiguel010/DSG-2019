@@ -26,11 +26,25 @@ World::World(std::string nameFile)
 
 	//TODO: initalize everything else
 	//...
-	
+	ifstream ficheroEntrada;
+	ficheroEntrada.open(nameFile); //open
+	char read; //la coma
+	int width;
+	int height;
+	int numcells;
 
-	World::CELLS = width * height;
+	ficheroEntrada >> width >> read >> height;
+	numcells = width * height;
+	m_cells = vector<char>(numcells);
+	//read the rest of the file
+	for (int i = 0; i < numcells; i++)
+	{
+		ficheroEntrada >> m_cells[i] >> read;
+	}
+	/*while (getline(ficheroEntrada, read)) {
+		cout << read << "\n";
+	}*/
 }
-
 
 World::~World()
 {
@@ -46,6 +60,12 @@ World::World(int width, int height)
 void World::draw()
 {
 	drawMaze();
+
+	int numcells = width * height;
+	for (int i = 0; i < numcells; i++)
+	{
+		cout << m_cells[i] << "\n"; //ESTA BIEN? no dibuja! AQUI O EN DRAWMAZE?
+	}
 
 	//TODO: -write the points each player has
 	//coins1 = GameLogic::m_player1.getcoin();
@@ -100,7 +120,7 @@ bool World::canMove(int x, int y)
 	//int cell = y * width + x;
 	int cell = calcPosition(x, y);
 
-	//count coin = '?' and move
+	//no count coin = '?' and move
 	if (m_coin == m_cells[cell])
 	{
 		return true;
