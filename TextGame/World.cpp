@@ -49,7 +49,10 @@ World::~World()
 
 World::World(int width, int height)
 {
+	this->width = width;
+	this->height = height;
 
+	//initialize();
 }
 void World::draw()
 {
@@ -132,4 +135,13 @@ int World::calcPosition(int x, int y)
 {
 	int cellP = y * m_width + x;
 	return cellP;
+}
+
+void World::initialize()
+{
+	cout << " " << " " << " " << " " << "?" << "\n";
+	cout << " " << "?" << " " << "#" << " " << "\n";
+	cout << " " << " " << " " << " " << " " << "\n";
+	cout << " " << "#" << " " << "?" << " " << "\n";
+	cout << " " << "?" << " " << " " << "?" << "\n";
 }

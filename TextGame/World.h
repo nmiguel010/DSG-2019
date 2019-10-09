@@ -14,11 +14,12 @@ class World
 	//int coins2;
 
 	int CELLS;
-
+	
 public :
+	
 	vector<char> m_cells;
 
-	bool m_esc; 
+	bool m_esc;
 
 	//Caracteres
 	const char m_coin = '?';
@@ -43,4 +44,6 @@ public :
 	void drawCoins();
 
 	bool canMove(int x, int y);
+
+	void initialize();
 };
