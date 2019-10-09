@@ -9,7 +9,8 @@
 
 int main()
 {
-	World world(5,5);
+	World world("file.csv");
+	//World world(5,5);
 	Player player1(world), player2(world);
 	GameLogic gameLogic(player1, player2, world);
 
