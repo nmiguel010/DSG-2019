@@ -49,8 +49,8 @@ World::~World()
 
 World::World(int width, int height)
 {
-	this->width = width;
-	this->height = height;
+	m_width = width;
+	m_height = height;
 
 	//initialize();
 }
