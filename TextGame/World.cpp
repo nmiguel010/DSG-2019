@@ -29,15 +29,12 @@ World::World(std::string nameFile)
 	ifstream ficheroEntrada;
 	ficheroEntrada.open(nameFile); //open
 	char read; //la coma
-	int width;
-	int height;
-	int numcells;
 
-	ficheroEntrada >> width >> read >> height;
-	numcells = width * height;
-	m_cells = vector<char>(numcells);
+	ficheroEntrada >> m_width >> read >> m_height;
+	CELLS = m_width * m_height;
+	m_cells = vector<char>(CELLS);
 	//read the rest of the file
-	for (int i = 0; i < numcells; i++)
+	for (int i = 0; i < CELLS; i++)
 	{
 		ficheroEntrada >> m_cells[i] >> read;
 	}
@@ -58,11 +55,11 @@ void World::draw()
 {
 	drawMaze();
 
-	int numcells = width * height;
-	for (int i = 0; i < numcells; i++)
-	{
-		cout << m_cells[i] << "\n"; //ESTA BIEN? no dibuja! AQUI O EN DRAWMAZE?
-	}
+	//int numcells = width * height;
+	//for (int i = 0; i < numcells; i++)
+	//{
+	//	cout << m_cells[i]; 
+	//}
 
 	//TODO: -write the points each player has
 	//coins1 = GameLogic::m_player1.getcoin();
@@ -82,15 +79,12 @@ void World::drawMaze()
 
 	int n;
 
-	for (int i = 0; i < height; i++)
+	for (int i = 0; i < m_height; i++)
 	{
-		for (int j = 0; j <= width; j++)
+		for (int j = 0; j < m_width; j++)
 		{
-			n = World::calcPosition(i, j);
-			//if not coin draw
-			if (!m_cells[n] == m_coin) {
-				cout << m_cells[n];
-			}
+			n = calcPosition(i, j);
+			cout << m_cells[n];
 		}
 		cout << '\n';
 	}
@@ -102,7 +96,7 @@ void World::drawMaze()
 void World::drawCoins()
 {
 	//travel the world and when coin draw coin in the world
-	for (int i = 0; i < height; i++)
+	for (int i = 0; i < m_height; i++)
 	{
 		if (m_coin == m_cells[i])
 		{
@@ -136,6 +130,6 @@ bool World::canMove(int x, int y)
 
 int World::calcPosition(int x, int y)
 {
-	int cellP = y * width + x;
+	int cellP = y * m_width + x;
 	return cellP;
 }

@@ -7,8 +7,8 @@ using namespace std;
 class World
 {
 	Timer m_timer;
-	int width;
-	int height;
+	int m_width;
+	int m_height;
 
 	//int coins1;
 	//int coins2;
