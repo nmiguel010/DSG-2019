@@ -38,7 +38,10 @@ World::~World()
 
 World::World(int width, int height)
 {
+	this->width = width;
+	this->height = height;
 
+	//initialize();
 }
 void World::draw()
 {
@@ -100,7 +103,6 @@ bool World::canMove(int x, int y)
 	//count coin = '?' and move
 	if (m_coin == m_cells[cell])
 	{
-		
 		return true;
 	}
 	//no move wall = '#'
@@ -117,6 +119,15 @@ bool World::canMove(int x, int y)
 
 int World::calcPosition(int x, int y)
 {
-	int cellP = y * width + x;
+	int cellP = width*y + x;
 	return cellP;
+}
+
+void World::initialize()
+{
+	cout << " " << " " << " " << " " << "?" << "\n";
+	cout << " " << "?" << " " << "#" << " " << "\n";
+	cout << " " << " " << " " << " " << " " << "\n";
+	cout << " " << "#" << " " << "?" << " " << "\n";
+	cout << " " << "?" << " " << " " << "?" << "\n";
 }
