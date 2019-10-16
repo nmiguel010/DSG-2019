@@ -29,7 +29,7 @@ World::World(std::string nameFile)
 	ifstream ficheroEntrada;
 	ficheroEntrada.open(nameFile); //open
 	char read; //la coma
-	//borrar
+	
 	ficheroEntrada >> m_width >> read >> m_height;
 	CELLS = m_width * m_height;
 	m_cells = vector<char>(CELLS);
@@ -83,10 +83,10 @@ void World::drawMaze()
 	int n;
 
 	for (int j = 0; j < m_width; j++)
-	//for (int i = 0; i < m_height; i++)
+		//for (int i = 0; i < m_height; i++)
 	{
 		for (int i = 0; i < m_height; i++)
-		//for (int j = 0; j < m_width; j++)
+			//for (int j = 0; j < m_width; j++)
 		{
 			n = calcPosition(i, j);
 			cout << m_cells[n];
@@ -139,11 +139,16 @@ int World::calcPosition(int x, int y)
 	return cellP;
 }
 
-void World::initialize()
+void World::findPlayer(char id, int& x, int& y)
 {
-	cout << " " << " " << " " << " " << "?" << "\n";
-	cout << " " << "?" << " " << "#" << " " << "\n";
-	cout << " " << " " << " " << " " << " " << "\n";
-	cout << " " << "#" << " " << "?" << " " << "\n";
-	cout << " " << "?" << " " << " " << "?" << "\n";
+	for (int i = 0; i <= m_height; i++)
+	{
+		for (int j = 0; j <= m_width; j++)
+		{
+			if (m_cells[calcPosition(i, j)] == id) {
+				x = i;
+				y = j;
+			}
+		}
+	}
 }

@@ -9,7 +9,7 @@ class Player
 	World& m_world;
 
 public:
-	Player(World& world);
+	Player(World& world, char id);
 	~Player();
 
 	void moveUp();
@@ -19,6 +19,9 @@ public:
 
 	int getX();
 	int getY();
+
+	void setX(int x);
+	void setY(int y);
 
 	int getcoin();
 	void addcoin();
