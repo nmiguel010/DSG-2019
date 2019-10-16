@@ -29,7 +29,7 @@ World::World(std::string nameFile)
 	ifstream ficheroEntrada;
 	ficheroEntrada.open(nameFile); //open
 	char read; //la coma
-
+	//borrar
 	ficheroEntrada >> m_width >> read >> m_height;
 	CELLS = m_width * m_height;
 	m_cells = vector<char>(CELLS);
