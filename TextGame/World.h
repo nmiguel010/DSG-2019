@@ -22,13 +22,15 @@ public :
 	bool m_esc;
 
 	//Caracteres
-	const char m_coin = '?';
+	const char m_coin = '*';
 	const char m_player1 = 'o';
 	const char m_player2 = 'x';
-	const char m_nothing = ' ';
-	const char m_wall = '#';
+	const char m_nothing = '.';
+	const char m_wall = '?';
 
-	World(string nameFile);
+	void drawMaze();
+	void drawPlayer();
+
 
 	~World();
 

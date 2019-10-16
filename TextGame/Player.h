@@ -3,9 +3,9 @@
 
 class Player
 {
-	int c_x;
-	int c_y;
-	int coins;
+	int c_x=0;
+	int c_y=0;
+	int coins=0;
 	World& m_world;
 
 public:

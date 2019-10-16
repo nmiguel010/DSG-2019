@@ -71,7 +71,9 @@ void World::draw()
 
 	//TODO: -write the time elapsed since the beginning
 	//		-set the proper position/color
-	std::cout << m_timer.getElapsedTime() << "   ";
+
+	//std::cout << m_timer.getElapsedTime() << "   ";
+	cout << "time:" << m_timer.getElapsedTime() << "   ";
 }
 
 void World::drawMaze()
@@ -83,10 +85,10 @@ void World::drawMaze()
 	int n;
 
 	for (int j = 0; j < m_width; j++)
-		//for (int i = 0; i < m_height; i++)
+	//for (int i = 0; i < m_height; i++)
 	{
 		for (int i = 0; i < m_height; i++)
-			//for (int j = 0; j < m_width; j++)
+		//for (int j = 0; j < m_width; j++)
 		{
 			n = calcPosition(i, j);
 			cout << m_cells[n];
