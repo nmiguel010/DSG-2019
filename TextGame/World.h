@@ -31,12 +31,11 @@ public :
 	void drawMaze();
 	void drawPlayer();
 
+	World(string nameFile);
 
 	~World();
 
 	World(int width, int height);
-
-	void drawMaze();
 
 	void draw();
 
