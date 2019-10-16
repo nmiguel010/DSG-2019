@@ -14,14 +14,14 @@ namespace TestPlayer
 		
 		TEST_METHOD(TestMoveLeft)
 		{ 
-			World world(10,10,1,1,10,10);
+			/*World world(10,10,1,1,10,10);
 			Player player1(world), player2(world);
 			GameLogic gameLogic(player1, player2, world);
 
 			int x = 0;
 			player1.moveLeft();
 			int x_act = player1.getX();
-			Assert::AreEqual(x, x_act);
+			Assert::AreEqual(x, x_act);*/
 		}
 
 		/*TEST_METHOD(TestMoveRight)

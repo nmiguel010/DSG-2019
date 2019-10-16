@@ -30,7 +30,6 @@ public :
 	const char m_wall = '?';
 
 	void drawMaze();
-	void drawPlayer();
 
 	World(string nameFile);
 
