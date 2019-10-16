@@ -74,6 +74,7 @@ void World::draw()
 
 	//std::cout << m_timer.getElapsedTime() << "   ";
 	cout << "time:" << m_timer.getElapsedTime() << "   ";
+	cout << GameLogic::gamePoints;
 }
 
 void World::drawMaze()
