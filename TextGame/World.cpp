@@ -36,7 +36,7 @@ World::World(std::string nameFile)
 	//read the rest of the file
 	for (int i = 0; i < CELLS; i++)
 	{
-		ficheroEntrada >> m_cells[i] >> read;
+		ficheroEntrada >> m_cells[i];
 	}
 	/*while (getline(ficheroEntrada, read)) {
 		cout << read << "\n";
@@ -82,9 +82,11 @@ void World::drawMaze()
 
 	int n;
 
-	for (int i = 0; i < m_height; i++)
+	for (int j = 0; j < m_width; j++)
+	//for (int i = 0; i < m_height; i++)
 	{
-		for (int j = 0; j < m_width; j++)
+		for (int i = 0; i < m_height; i++)
+		//for (int j = 0; j < m_width; j++)
 		{
 			n = calcPosition(i, j);
 			cout << m_cells[n];
