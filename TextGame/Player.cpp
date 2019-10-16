@@ -3,10 +3,9 @@
 #include "World.h"
 using namespace std;
 
-Player::Player(World& world) : m_world(world)
+Player::Player(World& world, char id) : m_world(world)
 {
-	//find initial position of the player
-	//findPlayer();
+	world.findPlayer(id, c_x, c_y);
 }
 
 Player::~Player()
@@ -60,6 +59,15 @@ int Player::getY()
 	return c_y;
 }
 
+void Player::setX(int x)
+{
+	c_x = x;
+}
+
+void Player::setY(int y)
+{
+	c_y = y;
+}
 int Player::getcoin()
 {
 	return coins;

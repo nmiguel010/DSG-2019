@@ -32,11 +32,11 @@ public :
 	void drawPlayer();
 
 
-	World(string nameFile);
 	~World();
 
 	World(int width, int height);
 
+	void drawMaze();
 
 	void draw();
 
@@ -46,5 +46,5 @@ public :
 
 	bool canMove(int x, int y);
 
-	void initialize();
+	void findPlayer(char id, int& x, int& y);
 };
