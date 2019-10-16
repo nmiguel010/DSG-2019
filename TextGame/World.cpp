@@ -29,7 +29,7 @@ World::World(std::string nameFile)
 	ifstream ficheroEntrada;
 	ficheroEntrada.open(nameFile); //open
 	char read; //la coma
-
+	
 	ficheroEntrada >> m_width >> read >> m_height;
 	CELLS = m_width * m_height;
 	m_cells = vector<char>(CELLS);
@@ -71,7 +71,9 @@ void World::draw()
 
 	//TODO: -write the time elapsed since the beginning
 	//		-set the proper position/color
-	std::cout << m_timer.getElapsedTime() << "   ";
+
+	//std::cout << m_timer.getElapsedTime() << "   ";
+	cout << "time:" << m_timer.getElapsedTime() << "   ";
 }
 
 void World::drawMaze()
@@ -115,9 +117,13 @@ bool World::canMove(int x, int y)
 	//width 100
 	//int cell = y * width + x;
 	int cell = calcPosition(x, y);
-
+	//pos negatives NO MOVE
+	if (x < 0 && y < 0) 
+	{
+		return false;
+	}
 	//no count coin = '?' and move
-	if (m_coin == m_cells[cell])
+	else if (m_coin == m_cells[cell])
 	{
 		return true;
 	}
@@ -139,11 +145,28 @@ int World::calcPosition(int x, int y)
 	return cellP;
 }
 
-void World::initialize()
+void World::findPlayer(char id, int& x, int& y)
 {
-	cout << " " << " " << " " << " " << "?" << "\n";
-	cout << " " << "?" << " " << "#" << " " << "\n";
-	cout << " " << " " << " " << " " << " " << "\n";
-	cout << " " << "#" << " " << "?" << " " << "\n";
-	cout << " " << "?" << " " << " " << "?" << "\n";
+	for (int i = 0; i < m_height; i++)
+	{
+		for (int j = 0; j < m_width; j++)
+		{
+			if (m_cells[calcPosition(i, j)] == id) {
+				x = i;
+				y = j;
+			}
+		}
+	}
+}
+
+int World::coinsCalculate()
+{
+	totalCoins = 0;
+	for (int i = 0; i < m_cells.size(); i++) {
+		if (m_cells[i] == m_coin)
+		{
+			totalCoins += 1;
+		}
+	}
+	return totalCoins;
 }

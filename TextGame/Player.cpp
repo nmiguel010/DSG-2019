@@ -3,8 +3,9 @@
 #include "World.h"
 using namespace std;
 
-Player::Player(World& world) : m_world(world)
+Player::Player(World& world, char id) : m_world(world)
 {
+	world.findPlayer(id, c_x, c_y);
 }
 
 Player::~Player()
@@ -58,6 +59,15 @@ int Player::getY()
 	return c_y;
 }
 
+void Player::setX(int x)
+{
+	c_x = x;
+}
+
+void Player::setY(int y)
+{
+	c_y = y;
+}
 int Player::getcoin()
 {
 	return coins;
@@ -66,11 +76,21 @@ int Player::getcoin()
 void Player::addcoin()
 {
 	coins += 1;
+	m_world.totalCoins -= 1;
 }
 
 //bool Player::movePlayer(int myCellX, int myCellY, int wantedCellX, int wantedCellY)
 bool Player::movePlayer(int wantedCellX, int wantedCellY)
 {
+	if (m_world.canMove(wantedCellX, wantedCellY))
+	{
+		//hacer cambio de contenido si se puede mover
+		int posAct = m_world.calcPosition(c_x, c_y);
+		int posNew = m_world.calcPosition(wantedCellX, wantedCellY);
+
+		m_world.m_cells[posNew] = m_world.m_cells[posAct];
+		m_world.m_cells[posAct] = '.';
+	}
 	return m_world.canMove(wantedCellX, wantedCellY);
 }
 

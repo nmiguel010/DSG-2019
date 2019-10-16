@@ -5,7 +5,7 @@
 #include "World.h"
 
 GameLogic::GameLogic(Player& player1, Player& player2, World& world)
-	: m_player1(player1), m_player2(player2), m_world(world)
+	: mplayer1(player1), mplayer2(player2), m_world(world)
 {
 	
 }
@@ -27,21 +27,22 @@ void GameLogic::processInput()
 		switch (c)
 		{
 
-		case 'a': m_player1.moveLeft();
+		case 'a':
+			mplayer1.moveLeft();
 			break;
-		case 's': m_player1.moveUp();
+		case 's': mplayer1.moveUp();
 			break;
-		case 'd': m_player1.moveDown();
+		case 'd': mplayer1.moveDown();
 			break;
-		case 'f': m_player1.moveRight();
+		case 'f': mplayer1.moveRight();
 			break;
-		case '4': m_player2.moveLeft();
+		case '4': mplayer2.moveLeft();
 			break;
-		case '8': m_player2.moveUp();
+		case '8': mplayer2.moveUp();
 			break;
-		case '2': m_player2.moveDown();
+		case '2': mplayer2.moveDown();
 			break;
-		case '6': m_player2.moveRight();
+		case '6': mplayer2.moveRight();
 			break;
 		case 27:
 			esc = true;
@@ -53,16 +54,24 @@ void GameLogic::processInput()
 
 bool GameLogic::gameHasEnded()
 {
-	if (esc == true) 
+	if (esc == true)
+	{
+		cout << "prees enter to finish";
 		return true;
+	}
+	else if (m_world.totalCoins == 0)
+	{
+		cout << "prees enter to finish";
+		return true;
+	}
 	else
 		return false;
 }
 
 void GameLogic::gamePoints()
 {
-	coins1 = GameLogic::m_player1.getcoin();
-	coins2 = GameLogic::m_player2.getcoin();
+	coins1 = GameLogic::mplayer1.getcoin();
+	coins2 = GameLogic::mplayer2.getcoin();
 	cout << "Player1 coins: " << coins1 << '\n';
 	cout << "Player2 coins: " << coins2;
 }
