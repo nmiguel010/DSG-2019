@@ -54,8 +54,16 @@ void GameLogic::processInput()
 
 bool GameLogic::gameHasEnded()
 {
-	if (esc == true) 
+	if (esc == true)
+	{
+		cout << "prees enter to finish";
 		return true;
+	}
+	else if (m_world.totalCoins == 0)
+	{
+		cout << "prees enter to finish";
+		return true;
+	}
 	else
 		return false;
 }

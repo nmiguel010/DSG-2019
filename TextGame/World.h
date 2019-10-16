@@ -20,6 +20,7 @@ public :
 	vector<char> m_cells;
 
 	bool m_esc;
+	int totalCoins=10;
 
 	//Caracteres
 	const char m_coin = '*';
@@ -46,4 +47,6 @@ public :
 	bool canMove(int x, int y);
 
 	void findPlayer(char id, int& x, int& y);
+
+	int coinsCalculate();
 };

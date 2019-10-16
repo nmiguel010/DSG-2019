@@ -117,9 +117,13 @@ bool World::canMove(int x, int y)
 	//width 100
 	//int cell = y * width + x;
 	int cell = calcPosition(x, y);
-
+	//pos negatives NO MOVE
+	if (x < 0 && y < 0) 
+	{
+		return false;
+	}
 	//no count coin = '?' and move
-	if (m_coin == m_cells[cell])
+	else if (m_coin == m_cells[cell])
 	{
 		return true;
 	}
@@ -143,9 +147,9 @@ int World::calcPosition(int x, int y)
 
 void World::findPlayer(char id, int& x, int& y)
 {
-	for (int i = 0; i <= m_height; i++)
+	for (int i = 0; i < m_height; i++)
 	{
-		for (int j = 0; j <= m_width; j++)
+		for (int j = 0; j < m_width; j++)
 		{
 			if (m_cells[calcPosition(i, j)] == id) {
 				x = i;
@@ -153,4 +157,16 @@ void World::findPlayer(char id, int& x, int& y)
 			}
 		}
 	}
+}
+
+int World::coinsCalculate()
+{
+	totalCoins = 0;
+	for (int i = 0; i < m_cells.size(); i++) {
+		if (m_cells[i] == m_coin)
+		{
+			totalCoins += 1;
+		}
+	}
+	return totalCoins;
 }
