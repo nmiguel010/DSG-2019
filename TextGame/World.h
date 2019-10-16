@@ -35,8 +35,7 @@ public :
 	World(string nameFile);
 	~World();
 
-	World(int width, int height);
-
+	World(int width, int height, int xPlayer1, int iPlayer1, int xPlayer2, int iPlayer2);
 
 	void draw();
 

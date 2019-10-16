@@ -47,12 +47,12 @@ World::~World()
 {
 }
 
-World::World(int width, int height)
+World::World(int width, int height, int xPlayer1, int iPlayer1, int xPlayer2, int iPlayer2)
 {
 	m_width = width;
 	m_height = height;
 
-	//initialize();
+	m_cells = vector<char>(CELLS);
 }
 void World::draw()
 {
