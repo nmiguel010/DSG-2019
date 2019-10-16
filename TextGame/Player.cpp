@@ -5,6 +5,8 @@ using namespace std;
 
 Player::Player(World& world) : m_world(world)
 {
+	//find initial position of the player
+	//findPlayer();
 }
 
 Player::~Player()

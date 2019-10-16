@@ -6,7 +6,7 @@
 class GameLogic
 {
 
-	Player &m_player1, &m_player2;
+	Player &mplayer1, &mplayer2;
 	World& m_world;
 	bool esc = false;
 
