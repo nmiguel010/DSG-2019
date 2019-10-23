@@ -54,13 +54,16 @@ void GameLogic::processInput()
 
 bool GameLogic::gameHasEnded()
 {
+	
 	if (esc == true)
 	{
+		gamePoints();
 		cout << "prees enter to finish";
 		return true;
 	}
 	else if (m_world.totalCoins == 0)
 	{
+		gamePoints();
 		cout << "prees enter to finish";
 		return true;
 	}
@@ -70,8 +73,8 @@ bool GameLogic::gameHasEnded()
 
 void GameLogic::gamePoints()
 {
-	coins1 = GameLogic::mplayer1.getcoin();
-	coins2 = GameLogic::mplayer2.getcoin();
+	coins1 = GameLogic::mplayer1.getcoin(1);
+	coins2 = GameLogic::mplayer2.getcoin(2);
 	cout << "Player1 coins: " << coins1 << '\n';
-	cout << "Player2 coins: " << coins2;
+	cout << "Player2 coins: " << coins2 << '\n';
 }

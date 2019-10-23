@@ -5,6 +5,7 @@ using namespace std;
 
 Player::Player(World& world, char id) : m_world(world)
 {
+	m_id = id;
 	world.findPlayer(id, c_x, c_y);
 }
 
@@ -16,6 +17,7 @@ Player::~Player()
 void Player::moveUp()
 {
 	//if (movePlayer(getX(), getY(), getX(), getY()-1))
+	isCoin(getX(), getY() - 1);
 	if (movePlayer(getX(), getY() - 1))
 	{
 		c_y -= 1;
@@ -25,6 +27,7 @@ void Player::moveUp()
 void Player::moveDown()
 { 
 	/*if (movePlayer(getX(), getY(), getX(), getY()+1))*/
+	isCoin(getX(), getY() + 1);
 	if (movePlayer(getX(), getY() + 1))
 	{
 		c_y += 1;
@@ -34,6 +37,7 @@ void Player::moveDown()
 void Player::moveRight()
 {
 	//if (movePlayer(getX(), getY(), getX()+1, getY()))
+	isCoin(getX() + 1, getY());
 	if (movePlayer(getX() + 1, getY()))
 	{
 		c_x += 1;
@@ -43,6 +47,7 @@ void Player::moveRight()
 void Player::moveLeft()
 {
 	//if (movePlayer(getX(), getY(), getX()-1, getY()))
+	isCoin(getX() - 1, getY());
 	if (movePlayer(getX() - 1, getY()))
 	{
 		c_x -= 1;
@@ -68,16 +73,36 @@ void Player::setY(int y)
 {
 	c_y = y;
 }
-int Player::getcoin()
+
+void Player::addcoin(char id)
 {
-	return coins;
+	if (id == 1)
+	{
+		coins1 += 1;
+		m_world.totalCoins -= 1;
+	}
+
+	else if (id == 2)
+	{
+		coins2 += 1;
+		m_world.totalCoins -= 1;
+	}
+
 }
 
-void Player::addcoin()
+int Player::getcoin(char id)
 {
-	coins += 1;
-	m_world.totalCoins -= 1;
+	if(id == 1)
+	{
+		return coins1;
+	}
+	else if (id == 2)
+	{
+		return coins2;
+	}
 }
+
+
 
 //bool Player::movePlayer(int myCellX, int myCellY, int wantedCellX, int wantedCellY)
 bool Player::movePlayer(int wantedCellX, int wantedCellY)
@@ -100,8 +125,16 @@ bool Player::isCoin(int x, int y)
 	int cell = m_world.calcPosition(x, y);
 	if (m_world.m_coin == m_world.m_cells[cell])
 	{
-		addcoin();
-		return true;
+		if (m_id == m_world.m_player1)
+		{
+			addcoin(1);
+			return true;
+		}
+		else if (m_id == m_world.m_player2)
+		{
+			addcoin(2);
+			return true;
+		}
 	}
 	else
 	{

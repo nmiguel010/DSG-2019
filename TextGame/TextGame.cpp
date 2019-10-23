@@ -24,7 +24,7 @@ int main()
 		gameLogic.processInput();
 		//game stadistics
 		gameLogic.gamePoints();
-
+		
 		//no infinite maze
 		System::clear();
 	}

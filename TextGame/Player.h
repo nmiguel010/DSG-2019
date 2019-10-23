@@ -3,9 +3,11 @@
 
 class Player
 {
+	char m_id;
 	int c_x=0;
 	int c_y=0;
-	int coins=0;
+	int coins1=0;
+	int coins2=0;
 	World& m_world;
 
 public:
@@ -23,8 +25,8 @@ public:
 	void setX(int x);
 	void setY(int y);
 
-	int getcoin();
-	void addcoin();
+	int getcoin(char id);
+	void addcoin(char id);
 
 	//IN WORLD
 	//bool canMove(int x, int y);

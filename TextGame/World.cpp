@@ -47,12 +47,14 @@ World::~World()
 {
 }
 
-World::World(int width, int height, int xPlayer1, int iPlayer1, int xPlayer2, int iPlayer2)
+World::World(int width, int height, int xPlayer1, int yPlayer1, int xPlayer2, int yPlayer2)
 {
 	m_width = width;
 	m_height = height;
-
+	CELLS = width * height;
 	m_cells = vector<char>(CELLS);
+	
+
 }
 void World::draw()
 {
@@ -118,7 +120,7 @@ bool World::canMove(int x, int y)
 	//int cell = y * width + x;
 	int cell = calcPosition(x, y);
 	//pos negatives NO MOVE
-	if (x < 0 && y < 0) 
+	if (x < 0 || y < 0 || x> m_width || y > m_height) 
 	{
 		return false;
 	}

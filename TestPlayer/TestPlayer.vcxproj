@@ -156,6 +156,12 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\TextGame\GameLogic.cpp" />
+    <ClCompile Include="..\TextGame\Player.cpp" />
+    <ClCompile Include="..\TextGame\System.cpp" />
+    <ClCompile Include="..\TextGame\TextGame.cpp" />
+    <ClCompile Include="..\TextGame\Timer.cpp" />
+    <ClCompile Include="..\TextGame\World.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -163,11 +169,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TestPlayer.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TextGame\TextGame.vcxproj">
-      <Project>{6327db3c-89f6-4f6a-aff9-67c936af2d27}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
