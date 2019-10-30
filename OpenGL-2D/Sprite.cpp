@@ -20,11 +20,14 @@ void Sprite::setColor(float r, float g, float b)
 void Sprite::setPosition(double x, double y)
 {
 	//This method only updates internally the object's position. It still needs to be passed to OpenGL before drawing it
+	m_x = x;
+	m_y = y;
 }
 
 void Sprite::setDepth(double depth)
 {
 	//This method only updates internally the object's depth. It still needs to be passed to OpenGL before drawing it
+	m_depth = depth;
 }
 
 void Sprite::setRotation(double angle)
@@ -35,6 +38,7 @@ void Sprite::setRotation(double angle)
 void Sprite::setSize(double size)
 {
 	//This method only updates internally the object's size. It still needs to be passed to OpenGL before drawing it
+	m_size = size;
 }
 
 void Sprite::draw()
