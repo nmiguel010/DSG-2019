@@ -51,12 +51,14 @@ void Sprite::draw()
 	//TODO:
 
 	//1. Pass the object's color to OpenGL
-
+	glColor3f(m_r, m_g, m_b);
 	//2. Save the current transformation matrix
-
+	glPushMatrix();
 	//3. Set the transformation matrix of the quad using position, size and angle
 
 	//4. Draw the quad centered in [0,0] with coordinates: [-1,-1], [1,-1], [1,1] and [-1,1]
-	
+	glTranslatef(0, 0, m_depth);
 	//5. Restore the transformation matrix
+	glPopMatrix();
+
 }
