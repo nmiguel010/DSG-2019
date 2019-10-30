@@ -48,7 +48,6 @@ void Sprite::setSize(double size)
 
 void Sprite::draw()
 {
-
 	//TODO:
 
 	//1. Pass the object's color to OpenGL
