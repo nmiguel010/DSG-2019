@@ -56,6 +56,7 @@ void Sprite::draw()
 	//2. Save the current transformation matrix
 	glPushMatrix();
 	//3. Set the transformation matrix of the quad using position, size and angle
+	glRotatef(m_angle, 0, 0, 1);
 
 	//4. Draw the quad centered in [0,0] with coordinates: [-1,-1], [1,-1], [1,1] and [-1,1]
 	glTranslatef(0, 0, m_depth);
